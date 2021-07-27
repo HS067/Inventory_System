@@ -1,0 +1,45 @@
+﻿@page
+@model Inventory_System.Pages.Registration.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Registeration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Registeration.Id" />
+            <div class="form-group">
+                <label asp-for="Registeration.ProductId" class="control-label"></label>
+                <select asp-for="Registeration.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                <span asp-validation-for="Registeration.ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registeration.RetailerId" class="control-label"></label>
+                <select asp-for="Registeration.RetailerId" class="form-control" asp-items="ViewBag.RetailerId"></select>
+                <span asp-validation-for="Registeration.RetailerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registeration.DeliveryStatus" class="control-label"></label>
+                <input asp-for="Registeration.DeliveryStatus" class="form-control" />
+                <span asp-validation-for="Registeration.DeliveryStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
